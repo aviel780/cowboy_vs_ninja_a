@@ -17,7 +17,7 @@ public:
     void add(Character* fighter);
     void attack(Team* enemy);
     int stillAlive() const;
-    void print() const;
+    std::string print() const;
     ~Team();
 };
  }

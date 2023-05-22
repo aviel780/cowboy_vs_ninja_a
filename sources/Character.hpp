@@ -20,7 +20,7 @@ public:
     void hit(int damage);
     std::string getName() const;
     Point getLocation() const;
-    virtual void print() const = 0;
+    virtual std::string print() const = 0;
 };
 
 class Cowboy : public Character {
@@ -32,7 +32,7 @@ public:
     void shoot(Character* enemy);
     bool hasBullets() const;
     void reload();
-    void print() const override;
+     std::string print() const override;
 };
 
  }

@@ -9,78 +9,62 @@
 #include "sources/YoungNinja.hpp"
 #include "sources/TrainedNinja.hpp"
 #include "sources/OldNinja.hpp"
+#include <stdexcept>
+#include "doctest.h"
+#include <iostream>
+#include <sstream>
+#include <stdexcept>
+
+
 
 using namespace ariel;
+using namespace std;
 
-int main() {
-    // Create points
-    Point point1(3.5, 2.8);
-    Point point2(-1.2, 5.6);
 
-    // Test Point class
-    std::cout << "Distance between point1 and point2: " << point1.distance(point2) << std::endl;
-    point1.print();
 
-    // Create characters
-    Cowboy cowboy("John", point1);
-    Ninja ninja("Ryu",120, point2,15);
-    YoungNinja youngNinja("Ken", point1);
-    TrainedNinja trainedNinja("Hanzo", point2);
-    OldNinja oldNinja("Jubei", point1);
 
-    // Test Character class
-    std::cout << "Is cowboy alive? " << (cowboy.isAlive() ? "Yes" : "No") << std::endl;
-    std::cout << "Distance between cowboy and ninja: " << cowboy.distance(ninja) << std::endl;
-    cowboy.hit(20);
-    std::cout << "Is cowboy alive after hit? " << (cowboy.isAlive() ? "Yes" : "No") << std::endl;
-    std::cout << "Cowboy's name: " << cowboy.getName() << std::endl;
-    std::cout << "Cowboy's location: ";
-    cowboy.getLocation().print();
-    cowboy.print();
 
-    // Test Cowboy class
-    cowboy.shoot(&ninja);
-    std::cout << "Is ninja alive after being shot by cowboy? " << (ninja.isAlive() ? "Yes" : "No") << std::endl;
-    std::cout << "Does cowboy have bullets? " << (cowboy.hasBullets() ? "Yes" : "No") << std::endl;
-    cowboy.reload();
-    std::cout << "Does cowboy have bullets after reloading? " << (cowboy.hasBullets() ? "Yes" : "No") << std::endl;
-
-    // Test Ninja class
-    ninja.move(&cowboy);
-    ninja.slash(&cowboy);
-    std::cout << "Is cowboy alive after being slashed by ninja? " << (cowboy.isAlive() ? "Yes" : "No") << std::endl;
-
-    // Create teams
-    Team team1(&cowboy);
-    team1.add(&ninja);
-    team1.add(&youngNinja);
-
-    Team2 team2;
-    team2.add(&cowboy);
-    team2.add(&ninja);
-    team2.add(&trainedNinja);
-
-    SmartTeam smartTeam;
-    smartTeam.add(&cowboy);
-    smartTeam.add(&ninja);
-    smartTeam.add(&oldNinja);
-
-    // // Test Team class
-    // std::cout << "Number of alive fighters in team1: " << team1.stillAlive() << std::endl;
-    // std::cout << "Number of alive fighters in team2: " << team2.stillAlive() << std::endl;
-    // team1.attack(&team2);
-    // std::cout << "Number of alive fighters in team2 after attack: " << team2.stillAlive() << std::endl;
-    // team1.print();
-
-    // // Test Team2 class
-    // team2.attack(&team1);
-    // std::cout << "Number of alive fighters in team1 after attack: " << team1.stillAlive() << std::endl;
-    // team2.print();
-
-    // // Test SmartTeam class
-    // smartTeam.attack(&team2);
-    // std::cout << "Number of alive fighters in team2 after smart attack: " << team2.stillAlive() << std::endl;
-    // smartTeam.print();
-
-    return 0;
+TEST_CASE("Point constructors"){
+    CHECK_NOTHROW(Point(6.1,4.52));
+    CHECK_NOTHROW(Point(-35.12,0.1));
 }
+
+TEST_CASE("points mathods"){
+      Point p1(0.0, 0.0);
+  Point p2(3.0, 4.0);
+  Point p3(-5.0, 4.7);
+
+ CHECK_NOTHROW( p1.distance(p2));
+ CHECK_NOTHROW( p2.distance(p3));
+ CHECK_NOTHROW( p1.distance(p3));
+ CHECK_NOTHROW( p2.distance(p2));
+   }
+
+  TEST_CASE("create chercters"){
+      Point p1(0.0, 0.0);
+  Point p2(3.0, 4.0);
+  Point p3(-5.0, 4.7);
+  Ninja ninja("Ryu",150, p2,12);
+Cowboy cowboy("John", p1);
+TrainedNinja ninja_R("Ryu", p2);
+OldNinja ninja_O("oldRyu", p3);
+  CHECK_NOTHROW( Cowboy cowboy("John", p1));
+  CHECK_NOTHROW(TrainedNinja ninja_R("Ryu", p2));
+  CHECK_NOTHROW(OldNinja ninja_O("oldRyu", p3));
+  CHECK_NOTHROW(YoungNinja ninja_RY("Ryu", p2));
+  CHECK_NOTHROW(Ninja ninja("Ryu",150, p2,12));
+
+  CHECK_NOTHROW(ninja.getName());
+  CHECK_NOTHROW( ninja_O.isAlive());
+  CHECK_NOTHROW( cowboy.getLocation());
+  CHECK_NOTHROW(ninja.hit(20));
+  CHECK_NOTHROW( cowboy.hit(15));
+  CHECK_NOTHROW(ninja.slash(&cowboy));
+  CHECK_NOTHROW(cowboy.hasBullets());
+  CHECK_NOTHROW(cowboy.reload());
+  CHECK_NOTHROW(ninja_R.getLocation());
+
+  
+  
+}
+

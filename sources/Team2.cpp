@@ -65,10 +65,11 @@ int Team2::stillAlive() const {
     return aliveCount;
 }
 
-void Team2::print() const {
-    for (Character* fighter : fighters) {
-        fighter->print();
-    }
+std::string Team2::print() const {
+    // for (Character* fighter : fighters) {
+    //     fighter->print();
+    // }
+    return "";
 }
 
 Team2::~Team2() {

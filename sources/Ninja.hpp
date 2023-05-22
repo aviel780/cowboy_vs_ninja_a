@@ -15,7 +15,7 @@ public:
     Ninja(const std::string& name, int hitPoints, const Point& location, int speed);
     void move(Character* enemy);
     void slash(Character* enemy);
-    void print() const override;
+    std::string print() const override;
 };
 
  }

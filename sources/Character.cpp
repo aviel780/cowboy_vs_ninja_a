@@ -45,9 +45,11 @@ void Cowboy::reload() {
     bullets = 6;
 }
 
-void Cowboy::print() const {
-    std::cout << "C - Name: " << name << ", HP: " << hitPoints << ", Location: ";
-    location.print();
-    std::cout << ", Bullets: " << bullets << std::endl;
+std::string Cowboy::print() const {
+    // std::cout << "C - Name: " << name << ", HP: " << hitPoints << ", Location: ";
+    // location.print();
+    // std::cout << ", Bullets: " << bullets << std::endl;
+    return " ";
+
 }
 

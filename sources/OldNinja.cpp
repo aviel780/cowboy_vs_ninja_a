@@ -7,8 +7,9 @@ using namespace ariel;
 OldNinja::OldNinja(const std::string& name, const Point& location)
     : Ninja(name, 150, location, 8) {}
 
-void OldNinja::print() const {
-    std::cout << "N - Name: " << name << ", HP: " << hitPoints << ", Location: ";
-    location.print();
-    std::cout << ", Speed: " << speed << std::endl;
+std::string OldNinja::print() const {
+    // std::cout << "N - Name: " << name << ", HP: " << hitPoints << ", Location: ";
+    // location.print();
+    // std::cout << ", Speed: " << speed << std::endl;
+    return "";
 }

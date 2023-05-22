@@ -10,7 +10,7 @@ namespace ariel {
 class OldNinja : public Ninja {
 public:
     OldNinja(const std::string& name, const Point& location);
-    void print() const override;
+    std::string print() const override;
 };
 
  }

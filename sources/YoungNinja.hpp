@@ -8,7 +8,7 @@ namespace ariel {
 class YoungNinja : public Ninja {
 public:
     YoungNinja(const std::string& name, const Point& location);
-    void print() const override;
+    std::string print() const override;
 };
  }
 #endif  // YoungNinja_HPP

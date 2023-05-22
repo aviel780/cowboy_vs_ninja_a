@@ -12,7 +12,7 @@ public:
     void add(Character* fighter);
     void attack(Team2* enemy);
     int stillAlive() const;
-    void print() const;
+    std::string print() const;
     ~Team2();
 };
  }

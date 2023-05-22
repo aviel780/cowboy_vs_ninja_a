@@ -63,10 +63,11 @@ int SmartTeam::stillAlive() const {
     return aliveCount;
 }
 
-void SmartTeam::print() const {
-    for (Character* fighter : fighters) {
-        fighter->print();
-    }
+std::string SmartTeam::print() const {
+    // for (Character* fighter : fighters) {
+    //     fighter->print();
+    // }
+    return "";
 }
 
 SmartTeam::~SmartTeam() {

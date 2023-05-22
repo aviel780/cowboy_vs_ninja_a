@@ -27,15 +27,17 @@ void Ninja::slash(Character* enemy) {
             enemy->hit(40);
     }
 }
-void Ninja::print() const {
-    std::cout << "Ninja: ";
-    if (!isAlive())
-        std::cout << "(" << getName() << ")";
-    else
-        std::cout << getName() << " - HP: " << hitPoints;
-    std::cout << " - Location: ";
-    getLocation().print();
-    std::cout << std::endl;
+std::string Ninja::print() const {
+    // std::cout << "Ninja: ";
+    // if (!isAlive())
+    //     std::cout << "(" << getName() << ")";
+    // else
+    //     std::cout << getName() << " - HP: " << hitPoints;
+    // std::cout << " - Location: ";
+    // getLocation().print();
+    // std::cout << std::endl;
+    return "";
+
 }
 
 

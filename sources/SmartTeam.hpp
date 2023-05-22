@@ -13,7 +13,7 @@ public:
     void add(Character* fighter);
     void attack(SmartTeam* enemy);
     int stillAlive() const;
-    void print() const;
+    std::string print() const;
     ~SmartTeam();
 };
  }
